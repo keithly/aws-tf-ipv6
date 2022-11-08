@@ -3,14 +3,14 @@ variable "network_acl_ingress" {
   type        = list(map(string))
 
   default = [
-//    {
-//      rule_no    = 50
-//      action     = "deny"
-//      protocol   = "tcp"
-//      from_port  = 80
-//      to_port    = 80
-//      cidr_block = "207.46.38.25/32"
-//    },
+    //    {
+    //      rule_no    = 50
+    //      action     = "deny"
+    //      protocol   = "tcp"
+    //      from_port  = 80
+    //      to_port    = 80
+    //      cidr_block = "207.46.38.25/32"
+    //    },
     {
       rule_no         = 60
       action          = "deny"
@@ -92,11 +92,11 @@ variable "network_acl_egress" {
       cidr_block = "0.0.0.0/0"
     },
     {
-      rule_no    = 101
-      action     = "allow"
-      from_port  = 80
-      to_port    = 80
-      protocol   = "tcp"
+      rule_no         = 101
+      action          = "allow"
+      from_port       = 80
+      to_port         = 80
+      protocol        = "tcp"
       ipv6_cidr_block = "::/0"
     },
     {
