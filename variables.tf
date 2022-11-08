@@ -17,7 +17,7 @@ variable "network_acl_ingress" {
       protocol        = "tcp"
       from_port       = 80
       to_port         = 80
-      ipv6_cidr_block = "2A0B:4340:580::/41"
+      ipv6_cidr_block = "2a0b:4340:580::/41"
     },
     {
       rule_no    = 900

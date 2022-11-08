@@ -10,7 +10,7 @@ resource "aws_vpc" "tf_vpc" {
 
 resource "aws_subnet" "tf_subnet_public_1" {
   cidr_block                      = "10.0.0.0/28"
-  ipv6_cidr_block                 = "2600:1f16:07c8:c000::/64"
+  ipv6_cidr_block                 = "2600:1f16:7c8:c000::/64"
   vpc_id                          = aws_vpc.tf_vpc.id
   availability_zone               = "us-east-2a"
   map_public_ip_on_launch         = true
@@ -23,7 +23,7 @@ resource "aws_subnet" "tf_subnet_public_1" {
 
 resource "aws_subnet" "tf_subnet_public_2" {
   cidr_block                      = "10.0.0.32/28"
-  ipv6_cidr_block                 = "2600:1f16:07c8:c001::/64"
+  ipv6_cidr_block                 = "2600:1f16:7c8:c001::/64"
   vpc_id                          = aws_vpc.tf_vpc.id
   availability_zone               = "us-east-2b"
   map_public_ip_on_launch         = true
