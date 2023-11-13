@@ -1,6 +1,5 @@
 resource "aws_vpc" "tf_vpc" {
   cidr_block                       = "10.0.0.0/26"
-  enable_dns_hostnames             = true
   assign_generated_ipv6_cidr_block = true
 
   tags = {
@@ -9,8 +8,8 @@ resource "aws_vpc" "tf_vpc" {
 }
 
 resource "aws_subnet" "tf_subnet_public_1" {
-  cidr_block                      = "10.0.0.0/28"
-  ipv6_cidr_block                 = "2600:1f16:7c8:c000::/64"
+  cidr_block                      = cidrsubnet(aws_vpc.tf_vpc.cidr_block, 2, 0)
+  ipv6_cidr_block                 = cidrsubnet(aws_vpc.tf_vpc.ipv6_cidr_block, 8, 0)
   vpc_id                          = aws_vpc.tf_vpc.id
   availability_zone               = "us-east-2a"
   map_public_ip_on_launch         = true
@@ -22,8 +21,8 @@ resource "aws_subnet" "tf_subnet_public_1" {
 }
 
 resource "aws_subnet" "tf_subnet_public_2" {
-  cidr_block                      = "10.0.0.32/28"
-  ipv6_cidr_block                 = "2600:1f16:7c8:c001::/64"
+  cidr_block                      = cidrsubnet(aws_vpc.tf_vpc.cidr_block, 2, 1)
+  ipv6_cidr_block                 = cidrsubnet(aws_vpc.tf_vpc.ipv6_cidr_block, 8, 1)
   vpc_id                          = aws_vpc.tf_vpc.id
   availability_zone               = "us-east-2b"
   map_public_ip_on_launch         = true
