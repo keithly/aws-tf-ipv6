@@ -1,9 +1,9 @@
-data "aws_ami" "amznlinux2" {
+data "aws_ami" "tf_al2023" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm*"]
+    values = ["al2023-ami-2023*x86_64"]
   }
 
   owners = ["amazon"]
@@ -12,8 +12,8 @@ data "aws_ami" "amznlinux2" {
 resource "aws_launch_template" "tf_lt" {
   name                   = "tf_lt"
   update_default_version = true
-  image_id               = data.aws_ami.amznlinux2.id
-  instance_type          = "t2.micro"
+  image_id               = data.aws_ami.tf_al2023.id
+  instance_type          = "t3.micro"
   user_data              = filebase64("httpd.sh")
   key_name               = "my-ec2-keypair"
   vpc_security_group_ids = [aws_security_group.tf_sg_public_http.id]
