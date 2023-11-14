@@ -3,7 +3,12 @@ data "aws_ami" "tf_al2023" {
 
   filter {
     name   = "name"
-    values = ["al2023-ami-2023*x86_64"]
+    values = ["al2023-ami-minimal-2023*"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["arm64"]
   }
 
   owners = ["amazon"]
@@ -13,7 +18,7 @@ resource "aws_launch_template" "tf_lt" {
   name                   = "tf_lt"
   update_default_version = true
   image_id               = data.aws_ami.tf_al2023.id
-  instance_type          = "t3.micro"
+  instance_type          = "t4g.nano"
   user_data              = filebase64("httpd.sh")
   key_name               = "my-ec2-keypair"
   vpc_security_group_ids = [aws_security_group.tf_sg_public_http.id]
