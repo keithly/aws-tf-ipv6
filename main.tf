@@ -1,22 +1,20 @@
 terraform {
-  required_version = ">= 1.3"
+  required_version = ">= 1.6"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.25"
+      version = "5.43.0"
     }
   }
 }
 
 provider "aws" {
-  profile = "default"
   region  = "us-east-2"
 
   default_tags {
     tags = {
-      environment = "prod"
-      project     = "aws-tf-ipv6"
+      project     = "https://github.com/keithly/aws-tf-ipv6"
     }
   }
 }

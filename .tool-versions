@@ -1,3 +1,1 @@
-direnv 2.32.3
-terraform 1.6.3
-tflint 0.49.0
+tflint 0.50.3

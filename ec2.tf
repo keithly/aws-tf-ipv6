@@ -20,7 +20,7 @@ resource "aws_launch_template" "tf_lt" {
   image_id               = data.aws_ami.tf_al2023.id
   instance_type          = "t4g.nano"
   user_data              = filebase64("httpd.sh")
-  key_name               = "my-ec2-keypair"
+  key_name               = "aws-tf-ipv6"
   vpc_security_group_ids = [aws_security_group.tf_sg_public_http.id]
 
   //  iam_instance_profile {
