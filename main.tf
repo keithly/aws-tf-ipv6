@@ -4,17 +4,17 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.45.0"
+      version = "5.54.1"
     }
   }
 }
 
 provider "aws" {
-  region  = "us-east-2"
+  region = "us-east-2"
 
   default_tags {
     tags = {
-      project     = "https://github.com/keithly/aws-tf-ipv6"
+      project = "https://github.com/keithly/aws-tf-ipv6"
     }
   }
 }
